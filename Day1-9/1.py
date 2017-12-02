@@ -1,7 +1,8 @@
 def captcha(captcha_input):
     result = 0
+    n = len(captcha_input)
     for i in range(len(captcha_input)):
-        next_char = captcha_input[(i+1)%len(captcha_input)]
+        next_char = captcha_input[(i+1) % n]
         if captcha_input[i] == next_char:
             result += int(next_char)
     return result
@@ -11,7 +12,7 @@ def captcha2(captcha_input):
     result = 0
     n = len(captcha_input)
     for i in range(len(captcha_input)):
-        next_char = captcha_input[(i + n//2)%len(captcha_input)]
+        next_char = captcha_input[(i + n//2) % n]
         if captcha_input[i] == next_char:
             result += int(next_char)
     return result
