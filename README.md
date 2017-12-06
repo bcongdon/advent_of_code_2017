@@ -18,3 +18,5 @@
 * Day 5:  :sparkles:
     * [Go](Day1-9/5.go)
     * [Python](Day1-9/5.py)
+* Day 6:  :fire:
+    * [Python](Day1-9/6.py)
