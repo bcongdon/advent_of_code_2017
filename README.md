@@ -19,4 +19,8 @@
     * [Go](Day1-9/5.go)
     * [Python](Day1-9/5.py)
 * Day 6:  :fire:
+    * [Go](Day1-9/6.go)
     * [Python](Day1-9/6.py)
+* Day 7:  :christmas_tree:
+    * [Go](Day1-9/7.go)
+    * [Python](Day1-9/7.py)
