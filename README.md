@@ -11,6 +11,7 @@
     * [Haskell](Day1-9/2.hs)
     * [Python](Day1-9/2.py)
 * Day 3:  :snowflake:
+    * [Go](Day1-9/3.go)
     * [Python](Day1-9/3.py)
 * Day 4:  :snowman:
     * [Go](Day1-9/4.go)

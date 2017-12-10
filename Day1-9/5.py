@@ -13,9 +13,9 @@ if __name__ == '__main__':
         jumps = [int(i) for i in f.readlines()]
     part1 = (lambda x: x+1)
     part2 = (lambda x: x-1 if x >= 3 else x+1)
-    example = [0, 3, 0, 1, -3]
-    assert first_jump_outside(example[:], part1) == 5
-    assert first_jump_outside(example[:], part2) == 10
+    # example = [0, 3, 0, 1, -3]
+    # assert first_jump_outside(example[:], part1) == 5
+    # assert first_jump_outside(example[:], part2) == 10
     print("Part 1: {}".format(
         first_jump_outside(jumps[:], lambda x: x+1)
     ))
