@@ -30,3 +30,6 @@
 * Day 9:  :bell:
     * [Go](Day1-9/9.go)
     * [Python](Day1-9/9.py)
+* Day 10:  :tada:
+    * [Go](Day10-19/10.go)
+    * [Python](Day10-19/10.py)
