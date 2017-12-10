@@ -2,24 +2,22 @@ package main
 
 import (
 	"fmt"
-	"github.com/golang-collections/collections/stack"
 	"io/ioutil"
 )
 
 func parseStream(stream []byte) (streamScore int, garbageChars int) {
 	streamScore = 0
 	garbageChars = 0
-	scoreStack := stack.New()
-	scoreStack.Push(0)
+	currLevel := 0
 
 	for idx := 0; idx < len(stream); {
 		switch stream[idx] {
 		case '{':
-			streamScore += scoreStack.Peek().(int) + 1
-			scoreStack.Push(scoreStack.Len())
+			streamScore += currLevel + 1
+			currLevel++
 			idx++
 		case '}':
-			scoreStack.Pop()
+			currLevel--
 			idx++
 		case '<':
 			gLen, gChars := parseGarbage(stream[idx:])
