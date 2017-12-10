@@ -17,6 +17,7 @@
     * [Go](Day1-9/4.go)
     * [Python](Day1-9/4.py)
 * Day 5:  :sparkles:
+    * [C](Day1-9/5.c)
     * [Go](Day1-9/5.go)
     * [Python](Day1-9/5.py)
 * Day 6:  :fire:
