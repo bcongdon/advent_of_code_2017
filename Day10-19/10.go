@@ -33,26 +33,14 @@ func knotHash(lengths []byte, state KnotHash) KnotHash {
 	size := len(state.hash)
 	for _, currLen := range lengths {
 		chunkLen := int(currLen)
-		var chunk []byte
-
-		// Extract chunk
-		if state.curr+chunkLen < size {
-			chunk = state.hash[state.curr : state.curr+chunkLen]
-		} else {
-			chunk = state.hash[state.curr:]
-			chunk = append(chunk, state.hash[:chunkLen-(size-state.curr)]...)
-		}
 
 		// Reverse chunk
-		for i := 0; i < len(chunk)/2; i++ {
-			tmp := chunk[i]
-			chunk[i] = chunk[len(chunk)-i-1]
-			chunk[len(chunk)-i-1] = tmp
-		}
-
-		// Reassign reversed chunk
-		for i := 0; i < chunkLen; i++ {
-			state.hash[(i+state.curr)%len(state.hash)] = chunk[i]
+		for i := 0; i < chunkLen/2; i++ {
+			s := (state.curr + i) % size
+			e := (state.curr + chunkLen - i - 1) % size
+			tmp := state.hash[s]
+			state.hash[s] = state.hash[e]
+			state.hash[e] = tmp
 		}
 
 		state.curr = (state.curr + (chunkLen + state.skip)) % len(state.hash)
