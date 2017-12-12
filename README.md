@@ -38,3 +38,6 @@
 * Day 11:  :santa:
     * [Go](Day10-19/11.go)
     * [Python](Day10-19/11.py)
+* Day 12:  :star2:
+    * [Go](Day10-19/12.go)
+    * [Python](Day10-19/12.py)
