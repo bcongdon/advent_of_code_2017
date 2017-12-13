@@ -11,7 +11,7 @@ import (
 func graphReach(graph map[int][]int, start int) []int {
 	toVisit := stack.New()
 	toVisit.Push(start)
-	
+
 	reachable := make(map[int]bool)
 	for toVisit.Len() > 0 {
 		curr := toVisit.Pop().(int)
@@ -27,7 +27,7 @@ func graphReach(graph map[int][]int, start int) []int {
 	for k := range reachable {
 		keys = append(keys, k)
 	}
-	
+
 	return keys
 }
 
@@ -54,7 +54,7 @@ func parseGraph(edges []string) map[int][]int {
 	for _, e := range edges {
 		split := strings.Split(e, " ")
 		adjacent := make([]int, len(split)-2)
-		
+
 		for i, v := range split[2:] {
 			cleanVStr := replacer.Replace(v)
 			adjVal, _ := strconv.Atoi(cleanVStr)
@@ -70,10 +70,10 @@ func parseGraph(edges []string) map[int][]int {
 func main() {
 	dat, _ := ioutil.ReadFile("./12.txt")
 	graph := parseGraph(strings.Split(string(dat), "\n"))
-	
+
 	part1 := graphReach(graph, 0)
 	fmt.Printf("Part 1: %d\n", len(part1))
-	
+
 	part2 := numConnectedComponents(graph)
 	fmt.Printf("Part 2: %d\n", part2)
 }
