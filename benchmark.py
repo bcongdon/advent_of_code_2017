@@ -30,7 +30,7 @@ def benchmark(cmd):
     times = []
     bench_start = time.perf_counter()
     for i in range(10000):
-        # Halt if benchmark takes more than 5 seconds
+        # Halt if benchmark takes more than 1 seconds
         if time.perf_counter() - bench_start > 1:
             break
         start = time.perf_counter()

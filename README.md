@@ -43,3 +43,6 @@
 * Day 13:  :snowflake:
     * [Go](Day10-19/13.go)
     * [Python](Day10-19/13.py)
+* Day 14:  :snowman:
+    * [Go](Day10-19/14.go)
+    * [Python](Day10-19/14.py)

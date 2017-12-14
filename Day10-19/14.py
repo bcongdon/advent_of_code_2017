@@ -1,5 +1,4 @@
 import numpy as np
-import binascii
 magic_suffix = [17, 31, 73, 47, 23]
 
 
@@ -33,16 +32,15 @@ def knot_hash(input_str):
     dense_hash = [0 for _ in range(16)]
     for i in range(16):
         dense_hash[i] = np.bitwise_xor.reduce(sparse_hash[16*i:16*i+16])
-    return(bytes(dense_hash).hex())
+    return dense_hash
 
 
 def construct_grid(seed):
     for i in range(128):
         key = "{}-{}".format(seed, i)
         row_hash = knot_hash(key)
-        binary = binascii.unhexlify(row_hash)
         row = ''
-        for b in binary:
+        for b in row_hash:
             b_str = bin(b)
             b_str = (10 - len(b_str))*'0' + b_str[2:]
             row += b_str
