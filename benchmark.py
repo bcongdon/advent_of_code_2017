@@ -17,7 +17,7 @@ languages = {
     'py': (None, 'python {}', 'Python'),
     # 'hs': 'Haskell',
     # 'cpp': 'C++',
-    'c': ('gcc -O3 {} -o {}', './{}', 'C'),
+    'c': ('gcc -O3 {} -o {}', './{} -lpthread', 'C'),
     # 'rb': 'Ruby',
     # 'swift': 'Swift',
     # 'java': 'Java',
@@ -81,7 +81,7 @@ def benchmark_day(day):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 3:
+    if len(sys.argv) == 2:
         benchmark_day(int(sys.argv[-1]))
     else:
         for day in range(1, 26):
