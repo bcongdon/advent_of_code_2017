@@ -17,7 +17,7 @@ languages = {
     'py': (None, 'python {}', 'Python'),
     # 'hs': 'Haskell',
     # 'cpp': 'C++',
-    'c': ('gcc -O3 {} -o {}', './{} -lpthread', 'C'),
+    'c': ('gcc -Ofast -march=native {} -o {}', './{} -lpthread', 'C'),
     # 'rb': 'Ruby',
     # 'swift': 'Swift',
     # 'java': 'Java',
