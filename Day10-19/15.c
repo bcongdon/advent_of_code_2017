@@ -6,7 +6,7 @@
 
 #define FACTOR_A 16807L
 #define FACTOR_B 48271L
-#define GENERATOR_MOD 2147483647L
+#define GENERATOR_MOD 0x7FFFFFFF
 #define CHECK_MASK 0xFFFF
 #define P1_ITERATIONS 40000000
 #define P2_ITERATIONS 5000000
@@ -16,6 +16,16 @@ typedef struct {
     long seed_b;
 } input;
 
+long generate(long seed, long factor) {
+    long prod = seed * factor;
+    long tmp = (prod & GENERATOR_MOD) + (prod >> 31);
+    if(tmp >> 31 == 0) {
+        return tmp;
+    } else {
+        return tmp - GENERATOR_MOD;
+    }
+}
+
 void *part1(void *arg) {
     input *in = arg;
     int judge = 0;
@@ -23,8 +33,8 @@ void *part1(void *arg) {
     long b = in->seed_b;
 
     for(int i = 0; i < P1_ITERATIONS; i++) {
-        a = (a*FACTOR_A) % GENERATOR_MOD;
-        b = (b*FACTOR_B) % GENERATOR_MOD;
+        a = generate(a, FACTOR_A);
+        b = generate(b, FACTOR_B);
 
         if((a & CHECK_MASK) == (b & CHECK_MASK)) {
             judge++;
@@ -41,11 +51,11 @@ void *part2(void *arg) {
     long b = in->seed_b;
 
     for(int i = 0; i < P2_ITERATIONS; i++) {
-        for(a = (a*FACTOR_A) % GENERATOR_MOD; a % 4 != 0;) {
-            a = (a*FACTOR_A) % GENERATOR_MOD;
+        for(a = generate(a, FACTOR_A); a % 4 != 0;) {
+            a = generate(a, FACTOR_A);
         }
         for(b = (b*FACTOR_B) % GENERATOR_MOD; b % 4 != 0;) {
-            b = (b*FACTOR_B) % GENERATOR_MOD;
+            b = generate(b, FACTOR_B);
         }
 
         if((a & CHECK_MASK) == (b & CHECK_MASK)) {

@@ -6,18 +6,28 @@ import (
 
 const factorA uint64 = 16807
 const factorB uint64 = 48271
-const generatorMod uint64 = 2147483647
+const generatorMod uint64 = 0x7fffffff
 const checkMask = 0xffff
 const part1Iterations = 40000000
 const part2Iterations = 5000000
+
+func generate(seed uint64, factor uint64) uint64 {
+	prod := seed * factor
+	tmp := (prod & generatorMod) + (prod >> 31)
+	if tmp >> 31 == 0 {
+		return tmp
+	} else {
+		return tmp - generatorMod
+	}
+}
 
 func part1(seedA uint64, seedB uint64, c chan int) {
 	judge := 0
 	a := seedA
 	b := seedB
 	for i := 0; i < part1Iterations; i++ {
-		a = (a * factorA) % generatorMod
-		b = (b * factorB) % generatorMod
+		a = generate(a, factorA)
+		b = generate(b, factorB)
 
 		if a&checkMask == b&checkMask {
 			judge++
@@ -31,12 +41,12 @@ func part2(seedA uint64, seedB uint64, c chan int) {
 	a := seedA
 	b := seedB
 	for i := 0; i < part2Iterations; i++ {
-		for a = (a * factorA) % generatorMod; a%4 != 0; {
-			a = (a * factorA) % generatorMod
+		for a = generate(a, factorA); a%4 != 0; {
+			a = generate(a, factorA)
 		}
 
-		for b = (b * factorB) % generatorMod; b%4 != 0; {
-			b = (b * factorB) % generatorMod
+		for b = generate(b, factorB); b%4 != 0; {
+			b = generate(b, factorB)
 		}
 
 		if a&checkMask == b&checkMask {
