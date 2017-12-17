@@ -14,7 +14,7 @@ const part2Iterations = 5000000
 func generate(seed uint64, factor uint64) uint64 {
 	prod := seed * factor
 	tmp := (prod & generatorMod) + (prod >> 31)
-	if tmp >> 31 == 0 {
+	if tmp>>31 == 0 {
 		return tmp
 	} else {
 		return tmp - generatorMod

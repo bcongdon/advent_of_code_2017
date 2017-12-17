@@ -75,8 +75,10 @@ func main() {
 	p1 := make(chan []byte)
 	p2 := make(chan []byte)
 
-	go runDance(steps, makeDancers(numDancers), 1, p1)
-	go runDance(steps, makeDancers(numDancers), 1000000000, p2)
+	dancers := makeDancers(numDancers)
+
+	go runDance(steps, dancers, 1, p1)
+	go runDance(steps, dancers, 1000000000, p2)
 
 	fmt.Printf("Part 1: %s\n", <-p1)
 	fmt.Printf("Part 2: %s\n", <-p2)
