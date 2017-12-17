@@ -16,7 +16,7 @@ folders = [
 languages = {
     'py': (None, 'python {}', 'Python'),
     # 'hs': 'Haskell',
-    # 'cpp': 'C++',
+    'cpp': ('g++ -Ofast -march=native {} -o {}', './{} -lpthread', 'C++'),
     'c': ('gcc -Ofast -march=native {} -o {}', './{} -lpthread', 'C'),
     # 'rb': 'Ruby',
     # 'swift': 'Swift',
