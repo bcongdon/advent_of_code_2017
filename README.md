@@ -53,3 +53,10 @@
 * Day 16:  :fire:
     * [Go](Day10-19/16.go)
     * [Python](Day10-19/16.py)
+* Day 17:  :christmas_tree:
+    * [C++](Day10-19/17.cpp)
+    * [Go](Day10-19/17.go)
+    * [Python](Day10-19/17.py)
+* Day 18:  :gift:
+    * [Go](Day10-19/18.go)
+    * [Python](Day10-19/18.py)

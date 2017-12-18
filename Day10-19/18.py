@@ -36,7 +36,6 @@ class VM:
             self.registers[inst[1]] %= self._get_value(inst[2])
         elif inst[0] == 'rcv':
             if self.part1:
-                self.registers[inst[1]] = self.last_sound
                 self.first_receive = self.last_sound
             else:
                 if self.receive_queue:
