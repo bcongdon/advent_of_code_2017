@@ -23,7 +23,7 @@ def pipe_letter_order(grid):
                     direction = (1, 0)
                 else:
                     direction = (-1, 0)
-        elif grid[y][x] == chr(32):
+        elif grid[y][x].isspace():
             return letters, count
         elif grid[y][x] not in '-|':
             letters.append(grid[y][x])
