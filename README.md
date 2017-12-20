@@ -64,5 +64,6 @@
     * [Go](Day10-19/19.go)
     * [Python](Day10-19/19.py)
 * Day 20:  :tada:
+    * [C++](Day20-25/20.cpp)
     * [Go](Day20-25/20.go)
     * [Python](Day20-25/20.py)

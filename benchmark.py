@@ -16,8 +16,8 @@ folders = [
 languages = {
     'py': (None, 'python {}', 'Python'),
     # 'hs': 'Haskell',
-    'cpp': ('g++ -Ofast -march=native {} -o {}', './{} -lpthread', 'C++'),
-    'c': ('gcc -Ofast -march=native {} -o {}', './{} -lpthread', 'C'),
+    'cpp': ('g++ -Ofast -march=native -lboost_regex -std=c++11 {} -o {}', './{} ', 'C++'),
+    'c': ('gcc -Ofast -march=native  -lpthread {} -o {}', './{}', 'C'),
     # 'rb': 'Ruby',
     # 'swift': 'Swift',
     # 'java': 'Java',
