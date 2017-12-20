@@ -8,6 +8,7 @@
     * [Go](Day1-9/1.go)
     * [Python](Day1-9/1.py)
 * Day 2:  :star2:
+    * [Go](Day1-9/2.go)
     * [Python](Day1-9/2.py)
 * Day 3:  :snowflake:
     * [Go](Day1-9/3.go)
