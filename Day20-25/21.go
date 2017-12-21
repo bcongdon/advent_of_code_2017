@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-type Config []string
+type Config [][]byte
 
 type RuleMatcher struct {
 	rules map[string]string
@@ -25,24 +25,15 @@ func flipChunk(chunk Config) Config {
 
 // transposeChunk returns the matrix transpose of the provided chunk.
 func transposeChunk(chunk Config) Config {
-	tmpChunk := make([][]byte, len(chunk))
-	for i := 0; i < len(chunk); i++ {
-		tmpChunk[i] = []byte(chunk[i])
-	}
-
 	transposed := make([][]byte, len(chunk))
 	for i := 0; i < len(chunk); i++ {
 		transposed[i] = make([]byte, len(chunk))
 		for j := 0; j < len(chunk); j++ {
-			transposed[i][j] = tmpChunk[j][i]
+			transposed[i][j] = chunk[j][i]
 		}
 	}
 
-	finalChunk := make([]string, len(chunk))
-	for i, row := range transposed {
-		finalChunk[i] = string(row)
-	}
-	return finalChunk
+	return transposed
 }
 
 // FindMatch returns the configuration string of the output of the
@@ -53,7 +44,7 @@ func (r *RuleMatcher) FindMatch(cfgString string) string {
 	}
 
 	chunk := cfgToChunk(cfgString)
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 4; i++ {
 		chunk = flipChunk(chunk)
 		flippedCfg := chunkToCfgString(chunk)
 		if match, ok := r.rules[flippedCfg]; ok {
@@ -77,7 +68,6 @@ func (r *RuleMatcher) AddRule(oldCfg, newCfg string) {
 	r.rules[oldCfg] = newCfg
 }
 
-
 // NewMatcher creates and initializes a new RuleMatcher.
 func NewMatcher() RuleMatcher {
 	return RuleMatcher{
@@ -88,13 +78,16 @@ func NewMatcher() RuleMatcher {
 // chunktoCfgString takes a configuration chunk and returns a representation
 // of that chunk as a configuration string.
 func chunkToCfgString(cfg Config) string {
-	cfgStr := make([]byte, 0)
+	cfgStr := make([]byte, len(cfg)*len(cfg)+len(cfg)-1)
+	idx := 0
 	for x := 0; x < len(cfg); x++ {
 		for y := 0; y < len(cfg); y++ {
-			cfgStr = append(cfgStr, cfg[x][y])
+			cfgStr[idx] = cfg[x][y]
+			idx++
 		}
 		if x+1 != len(cfg) {
-			cfgStr = append(cfgStr, '/')
+			cfgStr[idx] = '/'
+			idx++
 		}
 	}
 	return string(cfgStr)
@@ -119,9 +112,9 @@ func extractChunkCfgStr(cfg Config, cx int, cy int, chunkSize int) string {
 // cfgToChunk takes a configuration string, and returns a Configuration chunk.
 func cfgToChunk(cfg string) Config {
 	rows := strings.Split(cfg, "/")
-	chunk := make([]string, len(rows))
+	chunk := make([][]byte, len(rows))
 	for i, row := range rows {
-		chunk[i] = row
+		chunk[i] = []byte(row)
 	}
 	return chunk
 }
@@ -163,14 +156,8 @@ func iterateProduction(cfg Config, matcher RuleMatcher) Config {
 		}
 	}
 
-	newCfg := make([]string, newSize)
-	for i, row := range tmpCfg {
-		newCfg[i] = string(row)
-	}
-
-	return newCfg
+	return tmpCfg
 }
-
 
 // NumActive returns the number of active areas ('#' occurrences) in the
 // Config.
