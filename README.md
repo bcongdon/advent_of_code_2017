@@ -71,3 +71,6 @@
 * Day 21:  :santa:
     * [Go](Day20-25/21.go)
     * [Python](Day20-25/21.py)
+* Day 22:  :star2:
+    * [Go](Day20-25/22.go)
+    * [Python](Day20-25/22.py)
