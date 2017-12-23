@@ -74,3 +74,6 @@
 * Day 22:  :star2:
     * [Go](Day20-25/22.go)
     * [Python](Day20-25/22.py)
+* Day 23:  :snowflake:
+    * [Go](Day20-25/23.go)
+    * [Python](Day20-25/23.py)
