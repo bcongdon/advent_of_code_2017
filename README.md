@@ -77,3 +77,10 @@
 * Day 23:  :snowflake:
     * [Go](Day20-25/23.go)
     * [Python](Day20-25/23.py)
+* Day 24:  :snowman:
+    * [Go](Day20-25/24.go)
+    * [Python](Day20-25/24.py)
+* Day 25:  :sparkles:
+    * [C](Day20-25/25.c)
+    * [Go](Day20-25/25.go)
+    * [Python](Day20-25/25.py)
