@@ -14,7 +14,7 @@ folders = [
 # Form:
 #   extension: (compile_cmd, run_cmd, name)
 languages = {
-    'py': (None, 'python {}', 'Python'),
+    'py': (None, 'pypy {}', 'Python'),
     # 'hs': 'Haskell',
     'cpp': ('g++ -Ofast -march=native -lboost_regex -std=c++11 {} -o {}', './{} ', 'C++'),
     'c': ('gcc -Ofast -march=native  -lpthread {} -o {}', './{}', 'C'),
@@ -22,6 +22,7 @@ languages = {
     # 'swift': 'Swift',
     # 'java': 'Java',
     # 'js': 'Javascript',
+    'rs': ('rustc {0} -o {1}', './{0}', 'Rust'),
     'go': ('go build -o {1} {0}', './{}', 'Go')
 }
 
