@@ -22,7 +22,8 @@ extensions = {
     'swift': 'Swift',
     'java': 'Java',
     'js': 'Javascript',
-    'go': 'Go'
+    'go': 'Go',
+    'rs': 'Rust'
 }
 
 if __name__ == '__main__':

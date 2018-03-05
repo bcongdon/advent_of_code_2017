@@ -7,6 +7,7 @@
     * [C](Day1-9/1.c)
     * [Go](Day1-9/1.go)
     * [Python](Day1-9/1.py)
+    * [Rust](Day1-9/1.rs)
 * Day 2:  :star2:
     * [Go](Day1-9/2.go)
     * [Python](Day1-9/2.py)
@@ -35,9 +36,11 @@
 * Day 10:  :tada:
     * [Go](Day10-19/10.go)
     * [Python](Day10-19/10.py)
+    * [Rust](Day10-19/day10.rs)
 * Day 11:  :santa:
     * [Go](Day10-19/11.go)
     * [Python](Day10-19/11.py)
+    * [Rust](Day10-19/day11.rs)
 * Day 12:  :star2:
     * [Go](Day10-19/12.go)
     * [Python](Day10-19/12.py)
