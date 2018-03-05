@@ -38,7 +38,7 @@ fn path_dist(directions: Vec<&str>) -> (i32, i32) {
 }
 
 
-fn main() {
+pub fn main() {
     let mut f = File::open("11.txt").expect("file not found");
 
     let mut contents = String::new();
