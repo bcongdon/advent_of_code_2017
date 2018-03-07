@@ -22,7 +22,7 @@ languages = {
     # 'swift': 'Swift',
     # 'java': 'Java',
     # 'js': 'Javascript',
-    'rs': ('rustc {0} -o {1}', './{0}', 'Rust'),
+    'rs': ('rustc -O {0} -o {1}', './{0}', 'Rust'),
     'go': ('go build -o {1} {0}', './{}', 'Go')
 }
 
