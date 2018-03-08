@@ -76,8 +76,9 @@ func main() {
 	p2 := make(chan []byte)
 
 	dancers := makeDancers(numDancers)
-
 	go runDance(steps, dancers, 1, p1)
+
+	dancers = makeDancers(numDancers)
 	go runDance(steps, dancers, 1000000000, p2)
 
 	fmt.Printf("Part 1: %s\n", <-p1)
