@@ -64,6 +64,7 @@
     * [C++](Day10-19/17.cpp)
     * [Go](Day10-19/17.go)
     * [Python](Day10-19/17.py)
+    * [Rust](Day10-19/day17.rs)
 * Day 18:  :gift:
     * [Go](Day10-19/18.go)
     * [Python](Day10-19/18.py)
