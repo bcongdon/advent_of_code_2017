@@ -68,6 +68,7 @@
 * Day 18:  :gift:
     * [Go](Day10-19/18.go)
     * [Python](Day10-19/18.py)
+    * [Rust](Day10-19/day18.rs)
 * Day 19:  :bell:
     * [Go](Day10-19/19.go)
     * [Python](Day10-19/19.py)
