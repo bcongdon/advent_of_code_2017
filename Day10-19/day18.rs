@@ -3,7 +3,6 @@ use std::collections::HashMap;
 use std::fs::File;
 use std::io::prelude::*;
 
-
 #[derive(Debug, Clone)]
 struct Instruction {
     operation: String,
@@ -17,7 +16,7 @@ impl Instruction {
         if (fields.len() != 2) && (fields.len() != 3) {
             panic!("Invalid instruction: {}", value);
         }
-        
+
         let mut inst = Instruction {
             operation: String::from(fields[0]),
             operand0: String::from(fields[1]),
@@ -27,7 +26,7 @@ impl Instruction {
         if fields.len() == 3 {
             inst.operand1 = String::from(fields[2])
         }
-        
+
         inst
     }
 }
@@ -52,10 +51,8 @@ struct VM {
 impl VM {
     fn get_value(&self, token: &String) -> i64 {
         match token.parse::<i64>() {
-            Err(_) => {
-                *self.registers.get(&token.chars().next().unwrap()).unwrap()
-            },
-            Ok(val) => val
+            Err(_) => *self.registers.get(&token.chars().next().unwrap()).unwrap(),
+            Ok(val) => val,
         }
     }
 
@@ -101,16 +98,16 @@ impl VM {
                     let recv_val = self.receive_queue.pop_front().unwrap();
                     self.registers.insert(op0_key, recv_val);
                 } else {
-                    return
+                    return;
                 }
             }
             "jgz" => {
                 if self.get_value(&inst.operand0) > 0 {
                     self.pc = (self.pc as i64 + self.get_value(&inst.operand1)) as usize;
-                    return
+                    return;
                 }
             }
-            _ => panic!("Unhandled instruction: {}", inst.operation)
+            _ => panic!("Unhandled instruction: {}", inst.operation),
         }
         self.pc += 1
     }
@@ -118,7 +115,7 @@ impl VM {
     fn make_process_register(pid: usize) -> HashMap<char, i64> {
         let mut register = HashMap::new();
         register.insert('p', pid as i64);
-        
+
         for i in 0..255 {
             let key = char::from(i);
             register.insert(key, 0);
@@ -171,7 +168,7 @@ fn run_vm_pair(instructions: Vec<Instruction>) -> i32 {
         p0.run_instruction();
         p1.run_instruction();
     }
-    
+
     part2
 }
 

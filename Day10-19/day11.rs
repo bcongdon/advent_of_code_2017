@@ -7,7 +7,7 @@ fn manhatten_dist_hex(orig: (i32, i32), dest: (i32, i32)) -> i32 {
     let dist_y = dest.1 - orig.1;
 
     if (dist_x > 0) == (dist_y > 0) {
-        (dist_x + dist_y).abs() 
+        (dist_x + dist_y).abs()
     } else {
         cmp::max(dist_x.abs(), dist_y.abs())
     }
@@ -21,7 +21,7 @@ fn next_loc(orig: (i32, i32), direc: &str) -> (i32, i32) {
         "s" => (orig.0, orig.1 - 1),
         "sw" => (orig.0 - 1, orig.1),
         "nw" => (orig.0 - 1, orig.1 + 1),
-        _ => panic!("Invalid direction")
+        _ => panic!("Invalid direction"),
     }
 }
 
@@ -36,7 +36,6 @@ fn path_dist(directions: Vec<&str>) -> (i32, i32) {
 
     (manhatten_dist_hex((0, 0), curr_loc), max_dist)
 }
-
 
 pub fn main() {
     let mut f = File::open("11.txt").expect("file not found");

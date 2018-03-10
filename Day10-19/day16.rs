@@ -5,7 +5,6 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::thread;
 
-
 fn run_dance(steps: &Vec<String>, dancer_input: Vec<char>, repetitions: u32) -> String {
     let mut seen_states: HashSet<String> = HashSet::new();
     let mut ordered_states: Vec<String> = Vec::new();
@@ -33,7 +32,7 @@ fn run_dance(steps: &Vec<String>, dancer_input: Vec<char>, repetitions: u32) -> 
                     let positions = step[1..].split("/").collect::<Vec<_>>();
                     let p1 = positions[0].parse::<usize>().unwrap();
                     let p2 = positions[1].parse::<usize>().unwrap();
-                    
+
                     let tmp = dancers[p1];
                     dancers[p1] = dancers[p2];
                     dancers[p2] = tmp;
@@ -54,7 +53,7 @@ fn run_dance(steps: &Vec<String>, dancer_input: Vec<char>, repetitions: u32) -> 
                     dancers[p1] = dancers[p2];
                     dancers[p2] = tmp;
                 }
-                _ => {panic!("Invalid step: {}", step)}
+                _ => panic!("Invalid step: {}", step),
             }
         }
     }
@@ -77,10 +76,13 @@ fn get_steps() -> Vec<String> {
     f.read_to_string(&mut contents)
         .expect("something went wrong reading the file");
 
-    contents.split(",").map(|x| String::from(x)).collect::<Vec<String>>()
+    contents
+        .split(",")
+        .map(|x| String::from(x))
+        .collect::<Vec<String>>()
 }
 
-pub fn main() {    
+pub fn main() {
     let p1_thread = thread::spawn(move || {
         let dancers = make_dancers(NUM_DANCERS);
         run_dance(&get_steps(), dancers, 1)
@@ -93,7 +95,7 @@ pub fn main() {
 
     let p1_result = p1_thread.join().unwrap();
     let p2_result = p2_thread.join().unwrap();
-    
+
     println!("Part 1: {}", p1_result);
     println!("Part 2: {}", p2_result);
 }

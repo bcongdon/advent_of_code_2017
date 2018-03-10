@@ -46,7 +46,7 @@ fn part2(seed_a: u64, seed_b: u64) -> u64 {
         while a % 4 != 0 {
             a = generate(a, FACTOR_A);
         }
-        
+
         b = generate(b, FACTOR_B);
         while b % 4 != 0 {
             b = generate(b, FACTOR_B);
@@ -64,13 +64,9 @@ pub fn main() {
     let seed_a = 783;
     let seed_b = 325;
 
-    let p1_thread = thread::spawn(move || {
-        part1(seed_a, seed_b)
-    });
+    let p1_thread = thread::spawn(move || part1(seed_a, seed_b));
 
-    let p2_thread = thread::spawn(move || {
-        part2(seed_a, seed_b)
-    });
+    let p2_thread = thread::spawn(move || part2(seed_a, seed_b));
 
     let p1_result = p1_thread.join().unwrap();
     let p2_result = p2_thread.join().unwrap();

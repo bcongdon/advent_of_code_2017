@@ -8,7 +8,10 @@ pub fn main() {
     f.read_to_string(&mut contents)
         .expect("something went wrong reading the file");
 
-    let puzzle_lengths = contents.split(",").map(|x| x.parse::<i32>().unwrap()).collect::<Vec<i32>>();
+    let puzzle_lengths = contents
+        .split(",")
+        .map(|x| x.parse::<i32>().unwrap())
+        .collect::<Vec<i32>>();
 
     let mut hash = KnotHash::new(256);
 
@@ -16,7 +19,11 @@ pub fn main() {
     let part1_result = hash.hash.get(0).unwrap() * hash.hash.get(1).unwrap();
     println!("Part 1: {}", part1_result);
 
-    let byte_contents = contents.as_bytes().iter().map(|&x| x as i32).collect::<Vec<i32>>();
+    let byte_contents = contents
+        .as_bytes()
+        .iter()
+        .map(|&x| x as i32)
+        .collect::<Vec<i32>>();
     println!("{:?}", byte_contents);
     let part2_result = knot_hash_ascii(byte_contents.as_slice(), 64);
     println!("Part 2: {}", part2_result);
@@ -40,7 +47,7 @@ impl KnotHash {
         KnotHash {
             hash: vec,
             curr: 0,
-            skip: 0
+            skip: 0,
         }
     }
 
@@ -77,10 +84,14 @@ fn knot_hash_ascii(lengths: &[i32], rounds: i32) -> String {
     for i in 0..16 {
         let mut xor: u8 = 0;
 
-        for j in 16*i .. 16*i + 16 {
+        for j in 16 * i..16 * i + 16 {
             xor ^= (*knot_hash.hash.get(j).unwrap()) as u8;
         }
         dense_hash.insert(i, xor);
-    }    
-    dense_hash.iter().map(|x| format!("{:x}", x)).collect::<Vec<String>>().concat()
+    }
+    dense_hash
+        .iter()
+        .map(|x| format!("{:x}", x))
+        .collect::<Vec<String>>()
+        .concat()
 }

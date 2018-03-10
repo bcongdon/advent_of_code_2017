@@ -6,11 +6,13 @@ fn is_inflection_point(c: char) -> bool {
 }
 
 fn traverse_pipe_grid(grid: Vec<Vec<char>>) -> (String, i32) {
-    let start = grid[0].iter()
+    let start = grid[0]
+        .iter()
         .enumerate()
         .filter(|&(_, x)| *x == '|')
         .map(|(i, _)| i)
-        .next().unwrap();
+        .next()
+        .unwrap();
 
     let (mut dx, mut dy): (i32, i32) = (0, 1);
     let (mut x, mut y) = (start, 0);
@@ -22,14 +24,14 @@ fn traverse_pipe_grid(grid: Vec<Vec<char>>) -> (String, i32) {
         if curr_char == '+' {
             if dx != 0 {
                 dx = 0;
-                if y+1 < grid.len() && is_inflection_point(grid[y+1][x]) {
+                if y + 1 < grid.len() && is_inflection_point(grid[y + 1][x]) {
                     dy = 1;
                 } else {
                     dy = -1;
                 }
             } else {
                 dy = 0;
-                if x+1 < grid[0].len() && is_inflection_point(grid[y][x+1]) {
+                if x + 1 < grid[0].len() && is_inflection_point(grid[y][x + 1]) {
                     dx = 1;
                 } else {
                     dx = -1;
@@ -57,7 +59,10 @@ pub fn main() {
     f.read_to_string(&mut contents)
         .expect("something went wrong reading the file");
 
-    let lines = contents.split("\n").map(|x| String::from(x)).collect::<Vec<String>>();
+    let lines = contents
+        .split("\n")
+        .map(|x| String::from(x))
+        .collect::<Vec<String>>();
     let grid = make_grid(lines);
     let (letters, count) = traverse_pipe_grid(grid);
 
