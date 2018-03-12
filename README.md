@@ -86,6 +86,7 @@
 * Day 23:  :snowflake:
     * [Go](Day20-25/23.go)
     * [Python](Day20-25/23.py)
+    * [Rust](Day20-25/day23.rs)
 * Day 24:  :snowman:
     * [Go](Day20-25/24.go)
     * [Python](Day20-25/24.py)

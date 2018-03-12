@@ -1,0 +1,10 @@
+[package]
+name = "Day20-25"
+version = "0.1.0"
+authors = ["Benjamin Congdon <bencongdon96@gmail.com>"]
+
+[[bin]]
+name = "aoc"
+path = "main.rs"
+
+[dependencies]
