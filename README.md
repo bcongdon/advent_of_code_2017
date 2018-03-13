@@ -94,3 +94,4 @@
     * [C](Day20-25/25.c)
     * [Go](Day20-25/25.go)
     * [Python](Day20-25/25.py)
+    * [Rust](Day20-25/day25.rs)
