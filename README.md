@@ -77,6 +77,7 @@
     * [C++](Day20-25/20.cpp)
     * [Go](Day20-25/20.go)
     * [Python](Day20-25/20.py)
+    * [Rust](Day20-25/day20.rs)
 * Day 21:  :santa:
     * [Go](Day20-25/21.go)
     * [Python](Day20-25/21.py)
