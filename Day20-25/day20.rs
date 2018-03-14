@@ -34,7 +34,7 @@ impl Particle {
         let x = time * (self.vx as f64) + (0.5 * t_squared * (self.ax as f64));
         let y = time * (self.vy as f64) + (0.5 * t_squared * (self.ay as f64));
         let z = time * (self.vz as f64) + (0.5 * t_squared * (self.az as f64));
-        (x*x) + (y*y) + (z*z)
+        (x * x) + (y * y) + (z * z)
     }
 
     fn from_string(input: String) -> Particle {
@@ -43,14 +43,14 @@ impl Particle {
             .filter(|x| x.len() > 0)
             .map(|x| String::from(x).clone())
             .collect::<Vec<String>>();
-        
+
         let coords = fields
             .iter()
             .filter(|x| x.len() > 0)
             .map(|x| x.parse::<i64>().unwrap())
             .collect::<Vec<i64>>();
-    
-        Particle{
+
+        Particle {
             x: coords[0],
             y: coords[1],
             z: coords[2],
@@ -66,9 +66,7 @@ impl Particle {
 
 impl PartialEq for Particle {
     fn eq(&self, other: &Particle) -> bool {
-        (self.x == other.x) &&
-        (self.y == other.y) &&
-        (self.z == other.z)
+        (self.x == other.x) && (self.y == other.y) && (self.z == other.z)
     }
 }
 
@@ -105,7 +103,6 @@ fn num_uncollided_particles(mut particles: Vec<Particle>) -> usize {
                 locations.insert(p_loc, particles[i].clone());
             }
         }
-
     }
 
     particles
@@ -125,7 +122,7 @@ pub fn main() {
         .split("\n")
         .map(|x| Particle::from_string(String::from(x)))
         .collect::<Vec<Particle>>();
-    
+
     println!("Part 1: {}", closest_particle(particles.clone()));
     println!("Part 2: {}", num_uncollided_particles(particles));
 }

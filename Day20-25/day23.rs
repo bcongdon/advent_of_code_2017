@@ -3,7 +3,6 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::f64;
 
-
 #[derive(Debug, Clone)]
 struct Instruction {
     operation: String,

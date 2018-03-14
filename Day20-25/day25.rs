@@ -5,12 +5,12 @@ const NUM_STEPS: u32 = 12994925;
 struct Transition {
     new_val: usize,
     movement: i32,
-    next_state: u8
+    next_state: u8,
 }
 
 impl Transition {
     fn new(new_val: usize, movement: i32, next_state: char) -> Transition {
-        Transition{
+        Transition {
             new_val: new_val,
             movement: movement,
             next_state: next_state as u8,
@@ -20,30 +20,12 @@ impl Transition {
 
 fn make_tm() -> Vec<Vec<Transition>> {
     vec![
-        vec![
-            Transition::new(1, 1, 'b'),
-            Transition::new(0, -1, 'f')
-        ],
-        vec![
-            Transition::new(0, 1, 'c'),
-            Transition::new(0, 1, 'd')
-        ],
-        vec![
-            Transition::new(1, -1, 'd'),
-            Transition::new(1, 1, 'e')
-        ],
-        vec![
-            Transition::new(0, -1, 'e'),
-            Transition::new(0, -1, 'd')
-        ],
-        vec![
-            Transition::new(0, 1, 'a'),
-            Transition::new(1, 1, 'c')
-        ],
-        vec![
-            Transition::new(1, -1, 'a'),
-            Transition::new(1, 1, 'a')
-        ]
+        vec![Transition::new(1, 1, 'b'), Transition::new(0, -1, 'f')],
+        vec![Transition::new(0, 1, 'c'), Transition::new(0, 1, 'd')],
+        vec![Transition::new(1, -1, 'd'), Transition::new(1, 1, 'e')],
+        vec![Transition::new(0, -1, 'e'), Transition::new(0, -1, 'd')],
+        vec![Transition::new(0, 1, 'a'), Transition::new(1, 1, 'c')],
+        vec![Transition::new(1, -1, 'a'), Transition::new(1, 1, 'a')],
     ]
 }
 
