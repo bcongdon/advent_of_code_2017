@@ -20,9 +20,9 @@ fn line_even_score(line: String) -> i32 {
     let nums = line.split_whitespace()
         .map(|x| x.parse::<i32>().unwrap())
         .collect::<Vec<i32>>();
-    
+
     for (idx, i) in nums.iter().enumerate() {
-        for j in nums[idx+1..].iter() {
+        for j in nums[idx + 1..].iter() {
             if i % j == 0 || j % i == 0 {
                 return cmp::max(i, j) / cmp::min(i, j);
             }
