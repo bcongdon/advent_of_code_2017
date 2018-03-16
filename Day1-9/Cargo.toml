@@ -1,0 +1,10 @@
+[package]
+name = "Day1-9"
+version = "0.1.0"
+authors = ["Benjamin Congdon <bencongdon96@gmail.com>"]
+
+[[bin]]
+name = "aoc"
+path = "main.rs"
+
+[dependencies]

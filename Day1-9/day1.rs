@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::prelude::*;
 
-fn main() {
+pub fn main() {
     let puzzle = get_puzzle_input("1.txt");
 
     assert!(captcha1("1122") == 3);
