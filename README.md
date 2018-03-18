@@ -19,6 +19,7 @@
 * Day 4:  :snowman:
     * [Go](Day1-9/4.go)
     * [Python](Day1-9/4.py)
+    * [Rust](Day1-9/day4.rs)
 * Day 5:  :sparkles:
     * [C](Day1-9/5.c)
     * [Go](Day1-9/5.go)
