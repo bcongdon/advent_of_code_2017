@@ -6,15 +6,15 @@ fn next_location(loc: (i32, i32)) -> (i32, i32) {
 
     let (x, y) = loc;
     if det == x && det == -y {
-        return (x+1, y)
+        return (x + 1, y);
     } else if det == x && det != y {
-        return (x, y+1)
+        return (x, y + 1);
     } else if det == y && det != -x {
-        return (x-1, y)
+        return (x - 1, y);
     } else if det == -x && det != -y {
-        return (x, y-1)
+        return (x, y - 1);
     } else if det == -y {
-        return (x+1, y)
+        return (x + 1, y);
     }
     panic!("Unhandled case!");
 }
@@ -38,7 +38,7 @@ fn spiral_2(n: u32) -> i32 {
     while cost <= n {
         cost = 0;
         for i in -1..2 {
-            for j in -1..2{
+            for j in -1..2 {
                 cost += mem.get(&(loc.0 + i, loc.1 + j)).unwrap_or(&0);
             }
         }
