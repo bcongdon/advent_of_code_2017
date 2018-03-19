@@ -24,6 +24,7 @@
     * [C](Day1-9/5.c)
     * [Go](Day1-9/5.go)
     * [Python](Day1-9/5.py)
+    * [Rust](Day1-9/day5.rs)
 * Day 6:  :fire:
     * [Go](Day1-9/6.go)
     * [Python](Day1-9/6.py)
