@@ -34,6 +34,7 @@
 * Day 8:  :gift:
     * [Go](Day1-9/8.go)
     * [Python](Day1-9/8.py)
+    * [Rust](Day1-9/day8.rs)
 * Day 9:  :bell:
     * [Go](Day1-9/9.go)
     * [Python](Day1-9/9.py)
