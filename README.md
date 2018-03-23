@@ -32,6 +32,7 @@
 * Day 7:  :christmas_tree:
     * [Go](Day1-9/7.go)
     * [Python](Day1-9/7.py)
+    * [Rust](Day1-9/day7.rs)
 * Day 8:  :gift:
     * [Go](Day1-9/8.go)
     * [Python](Day1-9/8.py)
