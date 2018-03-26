@@ -40,6 +40,7 @@
 * Day 9:  :bell:
     * [Go](Day1-9/9.go)
     * [Python](Day1-9/9.py)
+    * [Rust](Day1-9/day9.rs)
 * Day 10:  :tada:
     * [Go](Day10-19/10.go)
     * [Python](Day10-19/10.py)
@@ -55,6 +56,7 @@
 * Day 13:  :snowflake:
     * [Go](Day10-19/13.go)
     * [Python](Day10-19/13.py)
+    * [Rust](Day10-19/day13.rs)
 * Day 14:  :snowman:
     * [Go](Day10-19/14.go)
     * [Python](Day10-19/14.py)
@@ -99,6 +101,7 @@
 * Day 24:  :snowman:
     * [Go](Day20-25/24.go)
     * [Python](Day20-25/24.py)
+    * [Rust](Day20-25/day24.rs)
 * Day 25:  :sparkles:
     * [C](Day20-25/25.c)
     * [Go](Day20-25/25.go)

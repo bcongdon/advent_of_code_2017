@@ -24,7 +24,7 @@ pub fn main() {
         .iter()
         .map(|&x| x as i32)
         .collect::<Vec<i32>>();
-    println!("{:?}", byte_contents);
+
     let part2_result = knot_hash_ascii(byte_contents.as_slice(), 64);
     println!("Part 2: {}", part2_result);
 }
