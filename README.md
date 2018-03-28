@@ -60,6 +60,7 @@
 * Day 14:  :snowman:
     * [Go](Day10-19/14.go)
     * [Python](Day10-19/14.py)
+    * [Rust](Day10-19/day14.rs)
 * Day 15:  :sparkles:
     * [C](Day10-19/15.c)
     * [Go](Day10-19/15.go)
@@ -90,6 +91,7 @@
 * Day 21:  :santa:
     * [Go](Day20-25/21.go)
     * [Python](Day20-25/21.py)
+    * [Rust](Day20-25/day21.rs)
 * Day 22:  :star2:
     * [Go](Day20-25/22.go)
     * [Python](Day20-25/22.py)
