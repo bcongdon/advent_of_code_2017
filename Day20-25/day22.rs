@@ -7,7 +7,7 @@ enum State {
     Clean,
     Infected,
     Flagged,
-    Weakened
+    Weakened,
 }
 
 #[derive(Hash, PartialEq, Eq, Clone, Copy, Debug)]
@@ -39,7 +39,13 @@ type Grid = HashMap<Location, State>;
 type InfectionTransition = HashMap<State, State>;
 type DirectionTransition = Fn(State, Direction) -> Direction;
 
-fn run_infection(mut grid: Grid, start: Location, iterations: usize, inf: InfectionTransition, dir: &DirectionTransition) -> usize{
+fn run_infection(
+    mut grid: Grid,
+    start: Location,
+    iterations: usize,
+    inf: InfectionTransition,
+    dir: &DirectionTransition,
+) -> usize {
     let mut coord = start;
     let mut direction = UP;
     let mut newly_infected: usize = 0;
@@ -60,7 +66,7 @@ fn run_infection(mut grid: Grid, start: Location, iterations: usize, inf: Infect
             DOWN => coord.y += 1,
             RIGHT => coord.x += 1,
             LEFT => coord.x -= 1,
-            _ => panic!("Invalid direction")
+            _ => panic!("Invalid direction"),
         };
     }
 
@@ -87,7 +93,7 @@ fn part1_direction_transition(s: State, d: Direction) -> Direction {
     match s {
         State::Infected => turn_right(d),
         State::Clean => turn_left(d),
-        _ => panic!("invalid state") 
+        _ => panic!("invalid state"),
     }
 }
 
@@ -107,27 +113,48 @@ pub fn main() {
     f.read_to_string(&mut contents)
         .expect("something went wrong reading the file");
 
-    let lines = contents.split("\n").map(String::from).collect::<Vec<String>>();
-    let mut grid: HashMap<Location, State> = HashMap::new(); 
+    let lines = contents
+        .split("\n")
+        .map(String::from)
+        .collect::<Vec<String>>();
+    let mut grid: HashMap<Location, State> = HashMap::new();
 
     for (i, line) in lines.iter().enumerate() {
         for (j, c) in line.chars().enumerate() {
-            let loc = Location{x: j as i32, y: i as i32};
+            let loc = Location {
+                x: j as i32,
+                y: i as i32,
+            };
             if c == '#' {
                 grid.insert(loc, State::Infected);
             }
         }
     }
 
-    let start = Location{x: (lines.len() / 2) as i32, y: (lines.len() / 2) as i32};
-    
+    let start = Location {
+        x: (lines.len() / 2) as i32,
+        y: (lines.len() / 2) as i32,
+    };
+
     let mut part1_grid = grid.clone();
     part1_grid.reserve(10000);
-    let part1 = run_infection(part1_grid, start, 10000, create_part1_infection_transition(), &part1_direction_transition);
+    let part1 = run_infection(
+        part1_grid,
+        start,
+        10000,
+        create_part1_infection_transition(),
+        &part1_direction_transition,
+    );
     println!("Part 1: {}", part1);
 
     let mut part2_grid = grid.clone();
     part2_grid.reserve(10000000);
-    let part2 = run_infection(part2_grid, start, 10000000, create_part2_infection_transition(), &part2_direction_transition);
+    let part2 = run_infection(
+        part2_grid,
+        start,
+        10000000,
+        create_part2_infection_transition(),
+        &part2_direction_transition,
+    );
     println!("Part 2: {}", part2);
 }
