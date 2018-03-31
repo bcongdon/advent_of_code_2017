@@ -1,5 +1,5 @@
 bin
 *.o
-/target/
 **/*.rs.bk
 Cargo.lock
+target
