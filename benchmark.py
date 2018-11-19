@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import os
@@ -14,10 +14,10 @@ folders = [
 # Form:
 #   extension: (compile_cmd, run_cmd, name)
 languages = {
-    'py': (None, 'python {}', 'Python'),
+    'py': (None, 'python3 {}', 'Python'),
     # 'hs': 'Haskell',
-    'cpp': ('g++ -Ofast -march=native -lboost_regex -std=c++11 {} -o {}', './{} ', 'C++'),
-    'c': ('gcc -Ofast -march=native  -lpthread {} -o {}', './{}', 'C'),
+    'cpp': ('g++ -Ofast -march=native {} -o {} -lboost_regex', './{} ', 'C++'),
+    'c': ('gcc -Ofast -pthread -march=native  -lpthread {} -o {}', './{}', 'C'),
     # 'rb': 'Ruby',
     # 'swift': 'Swift',
     # 'java': 'Java',
@@ -35,8 +35,15 @@ def benchmark(cmd):
         if time.perf_counter() - bench_start > 1:
             break
         start = time.perf_counter()
-        os.popen(cmd).read()
+        cmd_pipe = os.popen(cmd)
+        # Force the command to complete
+        cmd_pipe.read()
+        result = cmd_pipe.close()
         end = time.perf_counter()
+
+        if result and result != 0:
+            raise Exception("Command failed: {}".format(cmd))
+
         times.append((end-start))
     return sum(times) / len(times) * 1000
 
@@ -74,7 +81,10 @@ def benchmark_day(day):
                 comp = 'cp {} {}'
             bin_file = 'bin/{}-{}'.format(day, ext) if comp else fn
 
-            os.system(comp.format(fn, bin_file))
+            compile_command = comp.format(fn, bin_file)
+            compile_result = os.system(compile_command)
+            if compile_result != 0:
+                raise Exception("Compile failed for command {}".format(compile_command))
             runtime = benchmark(run.format(bin_file))
             print('\t{}: {:.2f}ms'.format(lang, runtime))
 
